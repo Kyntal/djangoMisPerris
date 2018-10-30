@@ -1,0 +1,72 @@
+{% load static from staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-Es">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/estiloperris.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+   <a title="Mis Perris" class="brand-logo" rel="home">
+        <img src="{% static "img\logo.png" %}">
+      </a>
+
+      <nav class="menuH">
+
+        <a onclick="goBack()">Inicio</a>
+        <script>
+       function goBack() {
+  					window.history.back();
+  			}
+  			</script>
+        <a href="QuienSo.html">Quienes somos</a>
+        <a href="Servicio.html">Servicios</a>
+        <a href="Formulario.html">Registro</a>
+        <a href="Contacto.html">Contáctanos</a>
+    </nav>
+    <br>
+
+    <h1 class="right fuenteA" style="color:black;">RESCATE</h1><br>
+    <p class="right fuenteB" style="color:grey;">Etapa uno</p><br>
+    <hr class="right" style="width:276px">
+
+    <p class="center">Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y los preparamos para buscarles un hogar.</p>
+    <br>
+      <img style = "display: block;" class ="center" src = "{% static "img\rescate.jpg" %}"><br>
+
+      <h2 class="left fuenteA" style="color:black;">CROWFUNDING</h2>
+      <p class="left fuenteB" style="color:grey;">Financiamiento</p><br>
+      <hr class="left" style="width:276px"><br>
+      <img style = "display: block;" class ="center"src="{% static "img\crowfunding.jpg" %}"><br>
+      <p class="center">Sigue nuestras redes sociales para informarte acerca de las diversas campañas y</p>
+      <p class="center"> actividades que realizaremos para obtener financiamiento para seguir ayudando.</p>
+</body>
+
+<!-- FOOTER -->
+<footer> <br><br>
+    <div class="row">
+        <div align=center>
+              <font face="Roboto"><B>Contactanos en nuestras redes sociales</B></font>
+        </div>
+
+        <div class="sociales center">
+            <a href="https://www.facebook.com/PerrosFranklinn/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://plus.google.com/s/rescatar%20perritos/top" class="googleplus"><i class="fab fa-google-plus"></i></a>
+            <a href="https://www.instagram.com/" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/user/DuocUCvideos" class="youtube"><i class="fab fa-youtube"></i></a>
+
+
+        </div>
+    </div>
+
+
+    <div class="footer-copyright">
+        <div align="center" class="container">
+            <font face="Roboto">&copy; 2018 Unzipping LTDA. Todos los derechos reservados</font>
+        </div>
+    </div>
+</footer>
+</html>

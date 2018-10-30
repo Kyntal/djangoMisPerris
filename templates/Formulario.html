@@ -1,0 +1,543 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario de registro</title>
+	<link rel="stylesheet" href="{% static 'css/estilosFormu.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+		/**
+		 * Funcion que se ejecuta al seleccionar una opcion del primer select
+		 */
+		function cargarSelect2(valor)
+		{
+		/**
+		 * Este array contiene los valores sel segundo select
+		 * Los valores del mismo son:
+		 *  - hace referencia al value del primer select. Es para saber que valores
+		 *  mostrar una vez se haya seleccionado una opcion del primer select
+		 *  - value que se asignara
+		 *  - testo que se asignara
+		 */
+			var arrayValores=new Array(
+				new Array(1,1,"Arica"),
+				new Array(1,2,"Camarones"),
+				new Array(1,3,"General Lagos"),
+				new Array(1,4,"Putre"),
+
+				new Array(2,1,"Alto Hospicio"),
+				new Array(2,2,"Camiña"),
+				new Array(2,3,"Colchane"),
+				new Array(2,4,"Huara"),
+				new Array(2,5,"Pica"),
+				new Array(2,6,"Pozo Almonte"),
+				new Array(2,7,"Iquique"),
+
+				new Array(3,1,"Antofagasta"),
+				new Array(3,2,"Calama"),
+				new Array(3,3,"María Elena"),
+				new Array(3,4,"Mejillones"),
+				new Array(3,5,"Ollagüe"),
+				new Array(3,6,"San Pedro de Atacama"),
+				new Array(3,7,"Sierra Gorda"),
+				new Array(3,8,"Tocopilla"),
+				new Array(3,9,"Taltal"),
+
+				new Array(4,1,"Diego de Almagro"),
+				new Array(4,2,"Chañaral"),
+				new Array(4,3,"Tierra Amarilla"),
+				new Array(4,4,"Copiapó"),
+				new Array(4,5,"Caldera"),
+				new Array(4,6,"Vallenar"),
+				new Array(4,7,"Huasco"),
+				new Array(4,8,"Freirina"),
+				new Array(4,9,"Alto del Carmen"),
+
+				new Array(5,1,"Andacollo"),
+				new Array(5,2,"Canela"),
+				new Array(5,3,"Combarbalá"),
+				new Array(5,4,"Coquimbo"),
+				new Array(5,5,"Illapel"),
+				new Array(5,6,"La Higuera"),
+				new Array(5,7,"La Serena"),
+				new Array(5,8,"Los Vilos"),
+				new Array(5,9,"Monte Patria"),
+				new Array(5,10,"Ovalle"),
+				new Array(5,11,"Paiguano"),
+				new Array(5,12,"Punitaqui"),
+				new Array(5,13,"Río Hurtado"),
+				new Array(5,14,"Vicuña"),
+				new Array(5,15,"Salamanca"),
+
+				new Array(6,1,"Algarrobo"),
+				new Array(6,2,"Cabildo"),
+				new Array(6,3,"Calle Larga"),
+				new Array(6,4,"Cartagena"),
+				new Array(6,5,"Casablanca"),
+				new Array(6,6,"Catemu"),
+				new Array(6,7,"Concón"),
+				new Array(6,8,"El Quisco"),
+				new Array(6,9,"El Tabo"),
+				new Array(6,10,"Hijuelas"),
+				new Array(6,11,"La Calera"),
+				new Array(6,12,"La Cruz"),
+				new Array(6,13,"La Ligua"),
+				new Array(6,14,"Limache"),
+				new Array(6,15,"Llaillay"),
+				new Array(6,16,"Los Andes"),
+				new Array(6,17,"Nogales"),
+				new Array(6,18,"Olmué"),
+				new Array(6,19,"Panquehue"),
+				new Array(6,20,"Papudo"),
+				new Array(6,21,"Petorca"),
+				new Array(6,22,"Puchuncaví"),
+				new Array(6,23,"Putaendo"),
+				new Array(6,24,"Quillota"),
+				new Array(6,25,"Quilpué"),
+				new Array(6,26,"Quintero"),
+				new Array(6,27,"Rinconada"),
+				new Array(6,28,"San Antonio"),
+				new Array(6,29,"San Felipe"),
+				new Array(6,30,"Santa María"),
+				new Array(6,31,"Santo Domingo"),
+				new Array(6,32,"Valparaíso"),
+				new Array(6,33,"Villa Alemana"),
+				new Array(6,34,"Viña del Mar"),
+				new Array(6,35,"Zapallar"),
+				new Array(6,36,"San Esteban"),
+
+				new Array(7,1,"Chépica"),
+				new Array(7,2,"Chimbarongo"),
+				new Array(7,3,"Codegua"),
+				new Array(7,4,"Coinco"),
+				new Array(7,5,"Coltauco"),
+				new Array(7,6,"Doñihue"),
+				new Array(7,7,"Graneros"),
+				new Array(7,8,"La Estrella"),
+				new Array(7,9,"Las Cabras"),
+				new Array(7,10,"Litueche"),
+				new Array(7,11,"Lolol"),
+				new Array(7,12,"Machalí"),
+				new Array(7,13,"Malloa"),
+				new Array(7,14,"Marchihue"),
+				new Array(7,15,"Mostazal"),
+				new Array(7,16,"Nancagua"),
+				new Array(7,17,"Navidad"),
+				new Array(7,18,"Olivar"),
+				new Array(7,19,"Palmilla"),
+				new Array(7,20,"Paredones"),
+				new Array(7,21,"Peralillo"),
+				new Array(7,22,"Peumo"),
+				new Array(7,23,"Pichidegua"),
+				new Array(7,24,"Pichilemu"),
+				new Array(7,25,"Placilla"),
+				new Array(7,26,"Pumanque"),
+				new Array(7,27,"Quinta de Tilcoco"),
+				new Array(7,28,"Rancagua"),
+				new Array(7,29,"Rengo"),
+				new Array(7,30,"Requinoa"),
+				new Array(7,31,"San Fernando"),
+				new Array(7,32,"Santa Cruz"),
+				new Array(7,33,"San Vicente"),
+
+				new Array(8,1,"Cauquenes"),
+				new Array(8,2,"Chanco"),
+				new Array(8,3,"Colbún"),
+				new Array(8,4,"Constitución"),
+				new Array(8,5,"Curepto"),
+				new Array(8,6,"Curicó"),
+				new Array(8,7,"Empedrado"),
+				new Array(8,8,"Hualañé"),
+				new Array(8,9,"Licantén"),
+				new Array(8,10,"Linares"),
+				new Array(8,11,"Longaví"),
+				new Array(8,12,"Maule"),
+				new Array(8,13,"Molina"),
+				new Array(8,14,"Parral"),
+				new Array(8,15,"Pelarco"),
+				new Array(8,16,"Pencahue"),
+				new Array(8,17,"Rauco"),
+				new Array(8,18,"Retiro"),
+				new Array(8,19,"Río Claro"),
+				new Array(8,20,"Romeral"),
+				new Array(8,21,"Sagrada Familia"),
+				new Array(8,22,"San Clemente"),
+				new Array(8,23,"San Javier"),
+				new Array(8,24,"San Rafael"),
+				new Array(8,25,"Talca"),
+				new Array(8,26,"Teño"),
+				new Array(8,27,"Vichuquén"),
+				new Array(8,28,"Villa Alegre"),
+				new Array(8,29,"Yerbas Buenas"),
+				new Array(8,30,"Pelluhue"),
+
+				new Array(9,1,"Arauco"),
+				new Array(9,2,"Bulnes"),
+				new Array(9,3,"Cabrero"),
+				new Array(9,4,"Cañete"),
+				new Array(9,5,"Chiguayante"),
+				new Array(9,6,"Chillán"),
+				new Array(9,7,"Chillán Viejo"),
+				new Array(9,8,"Coelemu"),
+				new Array(9,9,"Coihueco"),
+				new Array(9,10,"Concepción"),
+				new Array(9,11,"Coronel"),
+				new Array(9,12,"Curanilahue"),
+				new Array(9,13,"El Carmen"),
+				new Array(9,14,"Florida"),
+				new Array(9,15,"Hualpén"),
+				new Array(9,16,"Hualqui"),
+				new Array(9,17,"Laja"),
+				new Array(9,18,"Lebu"),
+				new Array(9,19,"Los Álamos"),
+				new Array(9,20,"Los Angeles"),
+				new Array(9,21,"Lota"),
+				new Array(9,22,"Mulchén"),
+				new Array(9,23,"Nacimiento"),
+				new Array(9,24,"Ñiquén"),
+				new Array(9,25,"Penco"),
+				new Array(9,26,"Pinto"),
+				new Array(9,27,"Quilleco"),
+				new Array(9,28,"Quillón"),
+				new Array(9,29,"Quirihue"),
+				new Array(9,30,"San Carlos"),
+				new Array(9,31,"San Ignacio"),
+				new Array(9,32,"San Nicolás"),
+				new Array(9,33,"San Pedro de la Paz"),
+				new Array(9,34,"Santa Bárbara"),
+				new Array(9,35,"Santa Juana"),
+				new Array(9,36,"Talcahuano"),
+				new Array(9,37,"Tomé"),
+				new Array(9,38,"Tucapel"),
+				new Array(9,39,"Yumbel"),
+				new Array(9,40,"Yungay"),
+
+				new Array(10,1,"Angol"),
+				new Array(10,2,"Carahue"),
+				new Array(10,3,"Cholchol"),
+				new Array(10,4,"Collipulli"),
+				new Array(10,5,"Cunco"),
+				new Array(10,6,"Curacautín"),
+				new Array(10,7,"Curarrehue"),
+				new Array(10,8,"Ercilla"),
+				new Array(10,9,"Freire"),
+				new Array(10,10,"Galvarino"),
+				new Array(10,11,"Gorbea"),
+				new Array(10,12,"Lautaro"),
+				new Array(10,13,"Loncoche"),
+				new Array(10,14,"Lonquimay"),
+				new Array(10,15,"Los Sauces"),
+				new Array(10,16,"Lumaco"),
+				new Array(10,17,"Melipeuco"),
+				new Array(10,18,"Nueva Imperial"),
+				new Array(10,19,"Padre Las Casas"),
+				new Array(10,20,"Perquenco"),
+				new Array(10,21,"Pitrufquén"),
+				new Array(10,22,"Pucón"),
+				new Array(10,23,"Purén"),
+				new Array(10,24,"Renaico"),
+				new Array(10,25,"Saavedra"),
+				new Array(10,26,"Temuco"),
+				new Array(10,27,"Teodoro Schmidt"),
+				new Array(10,28,"Toltén"),
+				new Array(10,29,"Traiguén"),
+				new Array(10,30,"Victoria"),
+				new Array(10,31,"Vilcún"),
+				new Array(10,32,"Villarrica"),
+
+				new Array(11,1,"Corral"),
+				new Array(11,2,"Futrono"),
+				new Array(11,3,"La Unión"),
+				new Array(11,4,"Lago Ranco"),
+				new Array(11,5,"Lanco"),
+				new Array(11,6,"Los Lagos"),
+				new Array(11,7,"Máfil"),
+				new Array(11,8,"Paillaco"),
+				new Array(11,9,"Panguipulli"),
+				new Array(11,10,"San José de la Mariquina"),
+				new Array(11,11,"Valdivia"),
+				new Array(11,12,"Río Bueno"),
+
+				new Array(12,1,"Ancud"),
+				new Array(12,2,"Calbuco"),
+				new Array(12,3,"Castro"),
+				new Array(12,4,"Chaitén"),
+				new Array(12,5,"Chonchi"),
+				new Array(12,6,"Cochamó"),
+				new Array(12,7,"Curaco de Vélez"),
+				new Array(12,8,"Dalcahue"),
+				new Array(12,9,"Fresia"),
+				new Array(12,10,"Frutillar"),
+				new Array(12,11,"Futaleufú"),
+				new Array(12,12,"Hualaihué"),
+				new Array(12,13,"Llanquihue"),
+				new Array(12,14,"Los Muermos"),
+				new Array(12,15,"Maullín"),
+				new Array(12,16,"Osorno"),
+				new Array(12,17,"Palena"),
+				new Array(12,18,"Puerto Montt"),
+				new Array(12,19,"Puerto Octay"),
+				new Array(12,20,"Puerto Varas"),
+				new Array(12,21,"Puqueldón"),
+				new Array(12,22,"Purranque"),
+				new Array(12,23,"Puyehue"),
+				new Array(12,24,"Queilén"),
+				new Array(12,25,"Quellón"),
+				new Array(12,26,"Quemchi"),
+				new Array(12,27,"Río Negro"),
+				new Array(12,28,"San Juan de la Costa"),
+				new Array(12,29,"San Pablo"),
+				new Array(12,30,"Quinchao"),
+
+				new Array(13,1,"Aisén"),
+				new Array(13,2,"Chile Chico"),
+				new Array(13,3,"Cisnes"),
+				new Array(13,4,"Cochrane"),
+				new Array(13,5,"Coihaique"),
+				new Array(13,6,"Lago Verde"),
+				new Array(13,7,"O'Higgins"),
+				new Array(13,8,"Río Ibáñez"),
+				new Array(13,9,"Tortel"),
+				new Array(13,10,"Guaitecas"),
+
+				new Array(14,1,"Antártica"),
+				new Array(14,2,"Laguna Blanca"),
+				new Array(14,3,"Natales"),
+				new Array(14,4,"Porvenir"),
+				new Array(14,5,"Primavera"),
+				new Array(14,6,"Punta Arenas"),
+				new Array(14,7,"Río Verde"),
+				new Array(14,8,"San Gregorio"),
+				new Array(14,9,"Timaukel"),
+				new Array(14,10,"Torres del Paine"),
+				new Array(14,11,"Cabo de Hornos"),
+
+				new Array(15,1,"Cerrillos"),
+				new Array(15,2,"Cerro Navia"),
+				new Array(15,3,"Conchalí"),
+				new Array(15,4,"El Bosque"),
+				new Array(15,5,"Estación Central"),
+				new Array(15,6,"Huechuraba"),
+				new Array(15,7,"Independencia"),
+				new Array(15,8,"La Cisterna"),
+				new Array(15,9,"La Florida"),
+				new Array(15,10,"La Granja"),
+				new Array(15,11,"La Pintana"),
+				new Array(15,12,"La Reina"),
+				new Array(15,13,"Las Condes"),
+				new Array(15,14,"Lo Barnechea"),
+				new Array(15,15,"Lo Espejo"),
+				new Array(15,16,"Lo Prado"),
+				new Array(15,17,"Macul"),
+				new Array(15,18,"Maipú"),
+				new Array(15,19,"Ñuñoa"),
+				new Array(15,20,"Padre Hurtado"),
+				new Array(15,21,"Pedro Aguirre Cerda"),
+				new Array(15,22,"Peñalolén"),
+				new Array(15,23,"Pirque"),
+				new Array(15,24,"Providencia"),
+				new Array(15,25,"Pudahuel"),
+				new Array(15,26,"Puente Alto"),
+				new Array(15,27,"Quilicura"),
+				new Array(15,28,"Quinta Normal"),
+				new Array(15,29,"Recoleta"),
+				new Array(15,30,"Renca"),
+				new Array(15,31,"San Bernardo"),
+				new Array(15,32,"San Joaquín"),
+				new Array(15,33,"San Miguel"),
+				new Array(15,34,"San Ramón"),
+				new Array(15,35,"Vitacura"),
+				new Array(15,36,"Santiago")
+			);
+
+			if(valor==0)
+			{
+				// desactivamos el segundo select
+				document.getElementById("select2").disabled=true;
+			}else{
+				// eliminamos todos los posibles valores que contenga el select2
+				document.getElementById("select2").options.length=0;
+
+				// añadimos los nuevos valores al select2
+				document.getElementById("select2").options[0]=new Option("Selecciona tu comuna", "0");
+				for(i=0;i<arrayValores.length;i++)
+				{
+					// unicamente añadimos las opciones que pertenecen al id seleccionado
+					// del primer select
+					if(arrayValores[i][0]==valor)
+					{
+						document.getElementById("select2").options[document.getElementById("select2").options.length]=new Option(arrayValores[i][2], arrayValores[i][1]);
+					}
+				}
+
+				// habilitamos el segundo select
+				document.getElementById("select2").disabled=false;
+			}
+		}
+			/**
+			 * Una vez selecciona una valor del segundo selecte, obtenemos la información
+			 * de los dos selects y la mostramos
+			 */
+			function seleccinado_select2(value)
+			{
+				var v1 = document.getElementById("select1");
+				var valor1 = v1.options[v1.selectedIndex].value;
+				var text1 = v1.options[v1.selectedIndex].text;
+				var v2 = document.getElementById("select2");
+				var valor2 = v2.options[v2.selectedIndex].value;
+				var text2 = v2.options[v2.selectedIndex].text;
+
+				// alert("Se ha seleccionado la Región "+valor1+" ("+text1+") de la primera selección y la comuna "+valor2+" ("+text2+") de la segunda selección");
+			}
+
+			// function Enviar(){
+			// 	alert("Se ha enviado los datos exitosamente");
+			// }
+			function sololetras(e){
+				key=e.keyCode || e.which;
+
+				teclado=String.fromCharCode(key);
+
+				letras="abcdefghijklmnñopqrstuvwxyz";
+
+				especiales="8-37-38-46-164";
+
+				teclado_especial=false;
+
+				for(var i in especiales){
+					if(key==especiales[i]){
+						teclado_especial=true;break;
+					}
+				}
+				if(letras.indexOf(teclado)==-1 && !teclado_especial){
+					return false;
+				}
+			}
+
+			function solonumero(e){
+				key=e.keyCode || e.which;
+				teclado=String.fromCharCode(key);
+				numeros="0123456789";
+				especiales="8-37-38-46";//array
+				teclado_especial_2=false;
+				for(var x in especiales){
+					if(key==especiales[x]){
+						teclado_especial_2=true;
+					}
+				}
+
+				if(numeros.indexOf(teclado)==-1 && !teclado_especial_2){
+					return false;
+				}
+			}
+
+			</script>
+</head>
+<body>
+	<h3><img src="{% static "img\logo.png" %}"></h3>
+	<form action="" method="" class="form-register">
+		<h4 class="form-titulo">Inscripción del dueño</h4>
+		<div class="container-inputs">
+			<input type="email" name="correo"
+			placeholder="Correo" class="input-100" required="true">
+
+
+			<input class="input-100" type="text" id="rut" maxlength="10" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT" onpaste="return false">
+
+        	<input type="text" name="nombre" onkeypress="return sololetras(event)"
+			placeholder="Nombres"class="input-100" required="true">
+
+			<input type="text" name="apellidos" onkeypress="return sololetras(event)" class="input-100"
+			placeholder="Apellidos"required="true">
+
+			<input type="text" name="telefono" maxlength="9" class="solo-numero" onkeypress="return solonumero(event)"
+			placeholder="Telefono (9 digitos)" required="true" onpaste="return false"/>
+
+			<input type="date" id="fecha" name="fecha" class="input-48"
+			 min="1930-01-01" max="2001-01-01" required>
+			 <br>
+
+			 <select id='select1' onchange='cargarSelect2(this.value);' required="required" class="selereg" >
+				<option value="" disabled selected>Selecciona tu región</option>
+				  <option value="1">XV de Arica y Parinacota</option>
+				  <option value="2">I de Tarapacá</option>
+				  <option value="3">II de Antofagasta</option>
+				  <option value="4">III de Atacama</option>
+				  <option value="5">IV de Coquimbo</option>
+				  <option value="6">V de Valparaíso</option>
+				  <option value="7">VI del Libertador General Bernardo O'Higgins</option>
+				  <option value="8">VII del Maule</option>
+				  <option value="9">VIII del Bío Bío</option>
+				  <option value="10">IX de la Araucanía</option>
+				  <option value="11">XIV de los Ríos</option>
+				  <option value="12">X de los Lagos</option>
+				  <option value="13">XI Aisén del General Carlos Ibáñez del Campo</option>
+				  <option value="14">XII de Magallanes y Antártica Chilena</option>
+				  <option value="15">RM Metropolitana de Santiago</option>
+			</select>
+
+			 <select id='select2' onchange='seleccinado_select2();' disabled required="required" class="selecomu">
+				<option value="" disabled selected>Selecciona tu comuna</option>
+			</select>
+			<br>
+
+
+
+	                <select required="required" class="tvivi">
+	                    <option value="" disabled selected>Tipo de Vivienda</option>
+	                    <option value="1">Casa con patio grande</option>
+	                    <option value="2">Casa con patio pequeño</option>
+	                    <option value="3">Casa sin patio</option>
+	                    <option value="3">Departamento</option>
+	                </select><br/>
+
+
+
+			<input type="submit" value="Registrar" class="btn-enviar" required href="#" >
+			<input type="submit" value="VOLVER" onclick ="goBack()"/>
+			<script>
+			function goBack() {
+					window.history.back();
+			}
+			</script>
+
+			<p class="form-link">¿Ya tienes una cuenta?<a href="#">Ingresa aquí</a></p>
+
+
+        	<!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/Validar-rut.js"></script>
+	<script src="js/jquery.numeric.js" type="text/javascript"></script>
+
+		</div>
+
+	</form>
+</body>
+<footer> <br><br>
+    <div class="row">
+        <div align=center>
+              <font face="Roboto"><B>Contactanos en nuestras redes sociales</B></font>
+        </div>
+
+        <div class="sociales center">
+            <a href="https://www.facebook.com/PerrosFranklinn/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://plus.google.com/s/rescatar%20perritos/top" class="googleplus"><i class="fab fa-google-plus"></i></a>
+            <a href="https://www.instagram.com/" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/user/DuocUCvideos" class="youtube"><i class="fab fa-youtube"></i></a>
+
+
+        </div>
+    </div>
+
+
+    <div class="footer-copyright">
+        <div align="center" class="container">
+            <font face="Roboto">&copy; 2018 Unzipping LTDA. Todos los derechos reservados</font>
+        </div>
+    </div>
+</footer>
+</html>
