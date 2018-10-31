@@ -15,17 +15,11 @@
       </a>
 
       <nav class="menuH">
-
-        <a onclick="goBack()">Inicio</a>
-        <script>
-       function goBack() {
-  					window.history.back();
-  			}
-  			</script>
-        <a href="QuienSo.html">Quienes somos</a>
-        <a href="Servicio.html">Servicios</a>
-        <a href="Formulario.html">Registro</a>
-        <a href="Contacto.html">Contáctanos</a>
+        <a href="{% url 'inicio' %}">Inicio</a>
+        <a href="{% url 'quienso' %}">Quienes somos</a>
+        <a href="{% url 'servicio' %}">Servicios</a>
+        <a href="{% url 'formulario' %}">Registro</a>
+        <a href="{% url 'contacto' %}">Contáctanos</a>
     </nav>
     <br>
 

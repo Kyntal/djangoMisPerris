@@ -20,16 +20,11 @@
 
    <nav class="menuH">
 
-       <a onclick="goBack()">Inicio</a>
-       <script>
-      function goBack() {
- 					window.history.back();
- 			}
- 			</script>
-       <a href="QuienSo.html">Quienes somos</a>
-       <a href="Servicio.html">Servicios</a>
-       <a href="Formulario.html">Registro</a>
-       <a href="Contacto.html">Contáctanos</a>
+       <a href="{% url 'inicio' %}">Inicio</a>
+       <a href="{% url 'quienso' %}">Quienes somos</a>
+       <a href="{% url 'servicio' %}">Servicios</a>
+       <a href="{% url 'formulario' %}">Registro</a>
+       <a href="{% url 'contacto' %}">Contáctanos</a>
    </nav>
    <br>
    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOvSURBVGhD7dhZqE1RHMfxY86QqZSEPBAZyhBRxJsxQyE8kSElJUoiD2aFFxmLB8KLJEOGB95kSjIlQxlSEjKT2fd3u7v+7dY9e6199j73qPOrT7d72mutfc5ee02Faqr5/9IJPTEIfdAVjVHRaYKx2IZr+Ii/Dt9xF/swC21QEemMrXgF140n+YpDGIh6SVtsh35h1w2mcQrdUbaMx0u4bqZUekLL0QC5RZVvxh+4biJLp9EamacpDsPVaF5uoiMyi56EXkhXY3m7jcxGtk1wNVIuF9AIJWUCyvFOJNmA1NEQm9foFOo3BiNVNE+4Kq0v1xE8LGvGznKyy8oUBEVrJldF9e0KvKMFYNq1UzloJe2VMXBVUCnWwyuV2q0i3t1L+wlXBWl8w2O8M5+V6hdaIDGf4KoghMb9LWgJRTPzXHyA6/pQ/VE0WqS5CobSZktphmFoX/NfoTAJrutDTUXR9IKrYAjtKfQk9CVu1H72BtGm6RLiZULNR9HokdkC97DXg508H0IZCluXNkzKftjPj8JVp6WFoy2zBEXTF7aAGvXJI0Rl3kPvRDu8rf1MC8/hUM4iulZ02pKU2bBlFqJotDSxBY7DJ7rOlpsHpQf0JEbU/Fco9MMPRNdp4m2IpCyDrX8GikbnTrab3IFPdLRjG9LoNBE2+hL3Ya/bBZ/shi2nASQxei+iAvr1WiEp6kr60rYxuQydYZ1DfBH6GV3gE618bVl128SoYVtoHHyiX1zvhy1bF70zeoo+0U1rEozK6ql6ZSZsowfgGx20PYctH/cFasM3C2DL74RXdAyjuSAqqJk+mtB8oq64Cg9gb0Av9g7oDDgk8SXTKHjnCGzhNUiTDtCyW0Osz+gUz2jY+3iCoHp0gm4rUHcI/SVLjfZFOvC297EYwTkJW8l5pPlV02YtbPsv0BzB0dpIy3Bb2WqUI+pSdqSS6Ugdzcq2Mg2bi5BnNNmpK9t2T6Ck6PjlDGyl+jIrkEf0JOL7oafwmgCTorNXncHayuUYQoblYtGLvQ7akNk2NMFqos0sGkZvwTYir6EFok7r00ZPIT46iVbOQ5B5dIR6EfEG5Rk0CXaDT9RVNGPXdT6g7tQbuUWr442IdwFLM/pBrIR2ctMwB0uxB1oAxkckS1uCTN4Jn+hAOb4iLZXmiZKG2LTRiDYZV+G6MV/qRpqxU012WUfrKY06Ojz7CdcNW1qKaxU7EuVcLQRFh2cDoJNzvdDapuqvlu46kMhqyK6mmmq8Uyj8A99DvFVHwVMSAAAAAElFTkSuQmCC">

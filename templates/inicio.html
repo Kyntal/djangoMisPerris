@@ -21,11 +21,11 @@
 
       <nav class="menuH">
 
-        <a href="#">Inicio</a>
-        <a href="/QuienSo/">Quienes somos</a>
-        <a href="/Servicio/">Servicios</a>
-        <a href="Formulario">Registro</a>
-        <a href="/Contacto/">Contáctanos</a>
+        <a href="{% url 'inicio' %}">Inicio</a>
+        <a href="{% url 'quienso' %}">Quienes somos</a>
+        <a href="{% url 'servicio' %}">Servicios</a>
+        <a href="{% url 'formulario' %}">Registro</a>
+        <a href="{% url 'contacto' %}">Contáctanos</a>
     </nav>
 
    <div class="container">
@@ -113,3 +113,6 @@
     </div>
 </footer>
 </html>
+
+{% block content %}
+{% endblock %}
