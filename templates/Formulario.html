@@ -497,6 +497,9 @@
 
 			<input type="submit" value="Registrar" class="btn-enviar" required href="#" >
 			<input type="submit" value="VOLVER" onclick ="goBack()"/>
+			<button class="button" onClick="window.open({% url 'article_list' %});">
+     <span class="icon">Open</span>
+	 		</button>
 			<script>
 			function goBack() {
 					window.history.back();
