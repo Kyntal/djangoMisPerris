@@ -17,3 +17,6 @@ def Servicio(request):
 
 def Contacto(request):
     return render(request, 'Contacto.html')
+
+def Principal(request):
+    return render(request, 'social.html')

@@ -125,12 +125,18 @@ AUTHENTICATION_BACKENDS = (
         'social.backends.facebook.FacebookOAuth2',
         'social.backends.twitter.TwitterOAuth',
         'django.contrib.auth.backends.ModelBackend',
+        'social_core.backends.google.GoogleOAuth2',
+        'social_core.backends.google.GoogleOAuth',
+        'social_core.backends.google.GoogleOpenId',
 )
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_TWITTER_KEY = ''
 SOCIAL_AUTH_TWITTER_SECRET = ''
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '938812312579-g8jeifvn6ghm3hc0r1dfokn09jl1o058.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'A-dXGXaHDARpaMJqmHrXxkaN'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '120794232168096'
 SOCIAL_AUTH_FACEBOOK_SECRET = '235c4cd24d439e18a5886704178f7010'
