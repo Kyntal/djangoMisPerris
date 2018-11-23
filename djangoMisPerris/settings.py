@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'articles',
+    'social.apps.django_app.default',
+    'principal',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +67,7 @@ WSGI_APPLICATION = 'djangoMisPerris.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'misperris',
         'USER': 'perroadm',
         'PASSWORD': '123456',
@@ -117,3 +119,18 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
+
+AUTHENTICATION_BACKENDS = (
+        'social.backends.facebook.FacebookAppOAuth2',
+        'social.backends.facebook.FacebookOAuth2',
+        'social.backends.twitter.TwitterOAuth',
+        'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_TWITTER_KEY = ''
+SOCIAL_AUTH_TWITTER_SECRET = ''
+
+SOCIAL_AUTH_FACEBOOK_KEY = '120794232168096'
+SOCIAL_AUTH_FACEBOOK_SECRET = '235c4cd24d439e18a5886704178f7010'
