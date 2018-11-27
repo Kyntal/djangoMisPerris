@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'articles',
-    'social.apps.django_app.default',
+    'social_django',
     'principal',
 ]
 
@@ -54,6 +54,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <- Here
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -120,15 +122,28 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 
+# SOCIAL_AUTH_PIPELINE = (
+#     'social_core.pipeline.social_auth.social_details',
+#     'social_core.pipeline.social_auth.social_uid',
+#     'social_core.pipeline.social_auth.auth_allowed',
+#     'myapp.pipeline.load_user',
+#     'social_core.pipeline.social_auth.social_user',
+#     'social_core.pipeline.social_auth.associate_user',
+#     'social_core.pipeline.social_auth.load_extra_data',
+#     'social_core.pipeline.user.user_details',
+# )
+
 AUTHENTICATION_BACKENDS = (
-        'social.backends.facebook.FacebookAppOAuth2',
-        'social.backends.facebook.FacebookOAuth2',
-        'social.backends.twitter.TwitterOAuth',
-        'django.contrib.auth.backends.ModelBackend',
-        'social_core.backends.google.GoogleOAuth2',
-        'social_core.backends.google.GoogleOAuth',
-        'social_core.backends.google.GoogleOpenId',
+        'social_core.backends.open_id.OpenIdAuth',  # for Google authentication
+        'social_core.backends.google.GoogleOpenId',  # for Google authentication
+        'social_core.backends.google.GoogleOAuth2',  # for Google authentication
+        'social_core.backends.github.GithubOAuth2',  # for Github authentication
+        'social_core.backends.facebook.FacebookOAuth2',  # for Facebook authentication
+
+        'django.contrib.auth.backends.ModelBackend'
 )
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'inicio'
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 

@@ -1,9 +1,17 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 
 def inicio(request):
     #return HttpResponse('Inicio')
     return render(request, 'inicio.html')
+
+def login(request):
+
+    return render(request, 'login.html')
+def logout(request):
+    return redirect('/')
+
 
 def QuienSo(request):
     #return HttpResponse('about')
