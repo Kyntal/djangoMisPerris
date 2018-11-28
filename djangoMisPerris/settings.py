@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'articles',
     'social_django',
+    'bootstrap3',
     'principal',
 ]
 
@@ -139,19 +140,22 @@ AUTHENTICATION_BACKENDS = (
         'social_core.backends.google.GoogleOAuth2',  # for Google authentication
         'social_core.backends.github.GithubOAuth2',  # for Github authentication
         'social_core.backends.facebook.FacebookOAuth2',  # for Facebook authentication
-
         'django.contrib.auth.backends.ModelBackend'
 )
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'inicio'
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-SOCIAL_AUTH_TWITTER_KEY = ''
-SOCIAL_AUTH_TWITTER_SECRET = ''
+# SOCIAL_AUTH_TWITTER_KEY = ''
+# SOCIAL_AUTH_TWITTER_SECRET = ''
+
+SOCIAL_AUTH_GITHUB_KEY = 'e57c7b925f2550ba01a9'
+SOCIAL_AUTH_GITHUB_SECRET = '67490f3d022c96f6e890c63d31f7d8a8e46aa3fc'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '938812312579-g8jeifvn6ghm3hc0r1dfokn09jl1o058.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'A-dXGXaHDARpaMJqmHrXxkaN'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '120794232168096'
-SOCIAL_AUTH_FACEBOOK_SECRET = '235c4cd24d439e18a5886704178f7010'
+# SOCIAL_AUTH_FACEBOOK_KEY = '120794232168096'
+# SOCIAL_AUTH_FACEBOOK_SECRET = '235c4cd24d439e18a5886704178f7010'

@@ -1,5 +1,5 @@
-{% load static from staticfiles %}
-{% load static %}
+{% load staticfiles %}
+{% load bootstrap3 %}
 <!DOCTYPE html>
 
 <html lang="es-Es">
@@ -25,17 +25,20 @@
         <a href="{% url 'inicio' %}">Inicio</a>
         <a href="{% url 'quienso' %}">Quienes somos</a>
         <a href="{% url 'servicio' %}">Servicios</a>
-        <a href="{% url 'formulario' %}">Registro</a>
-        <a href="{% url 'contacto' %}">Contáctanos</a>
+        <a href="{% url 'formulario' %}">Contacto</a>
+        <a href="{% url 'contacto' %}">Registro</a>
         {% block content %}
-         {% if user.is_authenticated %}
-                  <p class="">Hello, {{ user.username }}</p>
-                  <a href="/logout/">LogOut</a>
+         {% if request.user.is_authenticated %}
+                  <li><a href="#"><span class="glyphicon glyphicon-user"></span>Hola {{ request.user.first_name }}</a>
+                  <a href="{% url "logout" %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                 {% else %}
                 <a href="{% url 'login' %}">Iniciar Sesión</a>
                 {% endif %}
-      {% endblock content %}
+
     </nav>
+    <div class="container">
+    {% endblock %}
+</div>
 
    <div class="container">
     <h2 class="h2">Bienvenido a "Mis Perris"</h2>
