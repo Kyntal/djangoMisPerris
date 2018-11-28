@@ -1,8 +1,10 @@
-{% load static from staticfiles %}
-{% load static %}
+{% load staticfiles %}
+{% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="es-Es">
 <head>
+  <meta name="viewport" content="width=device-width,
+  user-scalable=no, initial-sale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta charset="UTF-8">
     <title>Servicios</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -20,6 +22,14 @@
         <a href="{% url 'servicio' %}">Servicios</a>
         <a href="{% url 'formulario' %}">Contacto</a>
         <a href="{% url 'contacto' %}">Registro</a>
+        {% block content %}
+         {% if request.user.is_authenticated %}
+                  <li><a href="#"><span class="glyphicon glyphicon-user"></span>Hola {{ request.user.first_name }}</a>
+                  <a href="{% url "logout" %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}">Iniciar Sesión</a>
+                {% endif %}
+       {% endblock %}
     </nav>
     <br>
 
